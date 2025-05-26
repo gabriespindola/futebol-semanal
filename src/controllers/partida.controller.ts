@@ -29,3 +29,8 @@ export async function deletar(req: Request, res: Response) {
   await partidaService.deletar(id);
   res.status(204).send();
 }
+
+
+
+// BUSCAR A GISELE E IR AO MERCADO!!!!!!!!!!!!!!!
+// PAO, FRUTAS E IOGURTE
