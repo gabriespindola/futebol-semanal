@@ -1,14 +1,14 @@
 {
   "name": "futebol-semanal",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev src/server.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["futebol","api","crud"],
+  "author": "gabriel espindola, eduardo matuella",
   "license": "ISC",
-  "description": "",
+  "description": "...",
   "dependencies": {
     "@prisma/client": "^6.8.2",
     "cors": "^2.8.5",

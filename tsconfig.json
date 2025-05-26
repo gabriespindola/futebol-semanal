@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "commonjs",
+    "module": "commonjs", // acredito que para usar import é necessário usar ECModules em vez do CommonJS
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./dist",
-    "rootDir": "./src"
+    "outDir": "./dist", // dir no qual será feita a build que o servidor rodará como basecode em produção
+    "rootDir": "./src" // dir do basecode em desenvolvimento
   }
 }
