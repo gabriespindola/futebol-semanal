@@ -2,9 +2,7 @@ CONCEITO C:
 
 --> Estrutura básica da API (CRUD de todos) + camada repository em um nível mais baixo que o service
 --> Definir a descrição do ReadMe na descrição do package.json (final do trabalho)
---> Construir comando de build e definir lib de transpilação do código
 --> Compartilhar entre nós o .env com as variáveis de ambiente para configuração do banco
---> Configuração do tsconfig.json
 
 
 CONCEITO B:
