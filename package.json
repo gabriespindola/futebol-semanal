@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "main": "src/server.ts",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "clear": "rmdir /s /q dist",
+    "build": "npm run clear && tsc"
   },
-  "keywords": ["futebol","api","crud"],
+  "keywords": [
+    "futebol",
+    "api",
+    "crud"
+  ],
   "author": "gabriel espindola, eduardo matuella",
   "license": "ISC",
   "description": "...",
