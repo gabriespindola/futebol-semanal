@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const SECRET = process.env.JWT_SECRET || 'FULLSTACK';
 
-export default function autenticar( req: Request, res: Response, next: NextFunction ): void {
+export function autenticar( req: Request, res: Response, next: NextFunction ): void {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -20,4 +20,10 @@ export default function autenticar( req: Request, res: Response, next: NextFunct
   } catch (err) {
     res.status(401).json({ mensagem: 'Token inválido ou expirado' });
   }
+}
+
+export function realizaLog(req: Request, res: Response, next: NextFunction): void {
+    const dataHora = new Date().toISOString();
+    console.log(`[${dataHora}] ${req.method} ${req.originalUrl}`);
+    next();
 }
