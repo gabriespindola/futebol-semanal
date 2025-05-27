@@ -1,12 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
 
-export default function autenticar(
-  req: Request,
-  res: Response,
-  next: NextFunction
-): void {
+const SECRET = process.env.JWT_SECRET || 'FULLSTACK';
+
+export default function autenticar( req: Request, res: Response, next: NextFunction ): void {
   const authHeader = req.headers.authorization;
-  const tokenEsperado = process.env.AUTH_TOKEN || 'FULLSTACK';
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     res.status(401).json({ mensagem: 'Token não fornecido' });
@@ -15,10 +13,11 @@ export default function autenticar(
 
   const token = authHeader.split(' ')[1];
 
-  if (token !== tokenEsperado) {
-    res.status(401).json({ mensagem: 'Token inválido' });
-    return;
+  try {
+    const payload = jwt.verify(token, SECRET);
+    (req as any).user = payload;
+    next();
+  } catch (err) {
+    res.status(401).json({ mensagem: 'Token inválido ou expirado' });
   }
-
-  next();
 }

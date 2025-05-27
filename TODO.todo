@@ -1,14 +1,12 @@
 CONCEITO C:
 
---> Estrutura básica da API (CRUD de todos) + camada repository em um nível mais baixo que o service
+--> Estrutura básica da API (CRUD de todos) - APENAS TESTAR AGORA COM LOGIN
 --> Definir a descrição do ReadMe na descrição do package.json (final do trabalho)
 --> Compartilhar entre nós o .env com as variáveis de ambiente para configuração do banco
 
 
 CONCEITO B:
 
---> Retorno do status code somente no controller (estrutura try/catch em todas funções com error bem definido)
---> Conferir o retorno de todos os status code.
 --> Confirmar a integração das 3 entidades
 --> Realizar uma funcionalidade que manipule duas entidades simultaneamente na aplicação como um todo (acredito que com jogadores e estatísticas, permite acessar os dois).
 --> Realizar uma funcionalidade que utilize mapeamento 1-1 ou Many-1 (qualquer relação já permite isso)
@@ -19,8 +17,7 @@ CONCEITO A:
 
 --> Realizar uma funcionalidade que utilize mapeamento Many-Many ou trabalhe com mais de duas entidades. (partidas com jogadores acredito, um jogador pode ter várias partidas enquanto uma partida pode ter vários jogadores)
 --> Descobrir um site de deploy (hospedagem) para essa nossa aplicação node-ts e como configurar o banco para nuvem
---> Utilizar autenticação nas APIs aplicando padrões de segurança adequadamente (OAuth e JWT);
 --> Testes unitários (acho que Jest só serve pra JS, tem q conferir isso)
 
+
 ** COMMITAR SEMPRE QUE POSSÍVEL **
-** TESTE DE TODOS OS ENDPOINTS LOCALMENTE, DEPOIS, NA NUVEM **
