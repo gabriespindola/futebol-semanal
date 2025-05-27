@@ -1,22 +1,44 @@
 import { PrismaClient } from '@prisma/client';
+import * as partidaRepository from '../repository/partida.repository';
+
 const prisma = new PrismaClient();
 
 export function listar() {
-  return prisma.partida.findMany();
+  try {
+    return partidaRepository.listar();
+  } catch (error) {
+    throw new Error(`Service Error: Erro ao listar partida: ${error}`);
+  }
 }
 
 export function buscarPorId(id: number) {
-  return prisma.partida.findUnique({ where: { id } });
+  try {
+    return partidaRepository.buscarPorId(id);
+  } catch (error) {
+    throw new Error(`Service Error: Erro ao buscar partida por ID: ${error}`);
+  }
 }
 
 export function criar(data: any) {
-  return prisma.partida.create({ data });
+  try {
+    return partidaRepository.criar(data);
+  } catch (error) {
+    throw new Error(`Service Error: Erro ao criar partida: ${error}`);
+  }
 }
 
 export function atualizar(id: number, data: any) {
-  return prisma.partida.update({ where: { id }, data });
+  try {
+    return partidaRepository.atualizar(id, data);
+  } catch (error) {
+    throw new Error(`Service Error: Erro ao atualizar partida: ${error}`);
+  }
 }
 
 export function deletar(id: number) {
-  return prisma.partida.delete({ where: { id } });
+  try {
+      return partidaRepository.deletar(id);
+  } catch (error) {
+    throw new Error(`Service Error: Erro ao deletar partida: ${error}`);
+  }
 }
