@@ -3,42 +3,46 @@ import * as partidaRepository from '../repository/partida.repository';
 
 const prisma = new PrismaClient();
 
-export function listar() {
+export async function listar() {
   try {
-    return partidaRepository.listar();
+    return await partidaRepository.listar();
   } catch (error) {
     throw new Error(`Service Error: Erro ao listar partida: ${error}`);
   }
 }
 
-export function buscarPorId(id: number) {
+export async function buscarPorId(id: number) {
   try {
-    return partidaRepository.buscarPorId(id);
+    return await partidaRepository.buscarPorId(id);
   } catch (error) {
     throw new Error(`Service Error: Erro ao buscar partida por ID: ${error}`);
   }
 }
 
-export function criar(data: any) {
+export async function criar(data: any) {
   try {
-    return partidaRepository.criar(data);
+    return await partidaRepository.criar(data);
   } catch (error) {
     throw new Error(`Service Error: Erro ao criar partida: ${error}`);
   }
 }
 
-export function atualizar(id: number, data: any) {
+export async function atualizar(id: number, data: any) {
   try {
-    return partidaRepository.atualizar(id, data);
+    return await partidaRepository.atualizar(id, data);
   } catch (error) {
     throw new Error(`Service Error: Erro ao atualizar partida: ${error}`);
   }
 }
 
-export function deletar(id: number) {
+export async function deletar(id: number) {
   try {
-      return partidaRepository.deletar(id);
+      return await partidaRepository.deletar(id);
   } catch (error) {
     throw new Error(`Service Error: Erro ao deletar partida: ${error}`);
   }
+}
+
+export async function listarJogadoresDaPartida(partidaId: number) {
+  return await partidaRepository.listarJogadoresDaPartida(partidaId);
 }

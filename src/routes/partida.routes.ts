@@ -9,4 +9,6 @@ router.post('/', partidaController.criar);
 router.put('/:id', partidaController.atualizar);
 router.delete('/:id', partidaController.deletar);
 
+router.get('/:id/jogadores', partidaController.listarJogadoresDaPartida);
+
 export default router;

@@ -51,3 +51,13 @@ export async function deletar(req: Request, res: Response): Promise<void> {
     res.status(500).json({ mensagem: 'Erro ao deletar partida', erro: error });
   }
 }
+
+export async function listarJogadoresDaPartida(req: Request, res: Response): Promise<void> {
+  try {
+    const id = Number(req.params.id);
+    const jogadores = await partidaService.listarJogadoresDaPartida(id);
+    res.status(200).json(jogadores);
+  } catch (error: any) {
+    res.status(500).json({ mensagem: error.message || 'Erro ao buscar jogadores da partida' });
+  }
+}

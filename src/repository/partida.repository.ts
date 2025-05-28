@@ -1,22 +1,31 @@
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export function listar() {
+export async function listar() {
   return prisma.partida.findMany();
 }
 
-export function buscarPorId(id: number) {
+export async function buscarPorId(id: number) {
   return prisma.partida.findUnique({ where: { id } });
 }
 
-export function criar(data: any) {
+export async function criar(data: any) {
   return prisma.partida.create({ data });
 }
 
-export function atualizar(id: number, data: any) {
+export async function atualizar(id: number, data: any) {
   return prisma.partida.update({ where: { id }, data });
 }
 
-export function deletar(id: number) {
+export async function deletar(id: number) {
   return prisma.partida.delete({ where: { id } });
+}
+
+export async function listarJogadoresDaPartida(partidaId: number) {
+  return prisma.estatistica.findMany({
+    where: { partidaId },
+    include: {
+      jogador: true,
+    },
+  });
 }

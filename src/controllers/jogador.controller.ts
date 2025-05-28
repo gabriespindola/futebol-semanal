@@ -51,3 +51,23 @@ export async function deletar(req: Request, res: Response): Promise<void> {
     res.status(500).json({ mensagem: 'Erro ao deletar jogador', erro: error });
   }
 }
+
+export async function listarPartidasDoJogador(req: Request, res: Response): Promise<void> {
+  try {
+    const id = Number(req.params.id);
+    const partidas = await jogadorService.listarPartidasDoJogador(id);
+    res.status(200).json(partidas);
+  } catch (error: any) {
+    res.status(500).json({ mensagem: error.message || 'Erro ao buscar partidas do jogador' });
+  }
+}
+
+export async function listarEstatisticasDoJogador(req: Request, res: Response): Promise<void> {
+  try {
+    const id = Number(req.params.id);
+    const estatisticas = await jogadorService.listarEstatisticasDoJogador(id);
+    res.status(200).json(estatisticas);
+  } catch (error: any) {
+    res.status(500).json({ mensagem: error.message || 'Erro ao buscar estatísticas do jogador' });
+  }
+}

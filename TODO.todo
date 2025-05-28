@@ -3,20 +3,15 @@ CONCEITO C:
 --> Estrutura básica da API (CRUD de todos) - APENAS TESTAR AGORA COM LOGIN
 --> Definir a descrição do ReadMe na descrição do package.json (final do trabalho)
 --> Compartilhar entre nós o .env com as variáveis de ambiente para configuração do banco
---> Realizar um middleware REALIZA LOG.
 
 
 CONCEITO B:
 
---> Confirmar a integração das 3 entidades
---> Realizar uma funcionalidade que manipule duas entidades simultaneamente na aplicação como um todo (acredito que com jogadores e estatísticas, permite acessar os dois).
---> Realizar uma funcionalidade que utilize mapeamento 1-1 ou Many-1 (qualquer relação já permite isso)
 --> Utilizar recurso de mídia, vamos fazer com imagem, para jogador, mais fácil (a lib multer acho que já da conta).
 
 
 CONCEITO A:
 
---> Realizar uma funcionalidade que utilize mapeamento Many-Many ou trabalhe com mais de duas entidades. (partidas com jogadores acredito, um jogador pode ter várias partidas enquanto uma partida pode ter vários jogadores)
 --> Descobrir um site de deploy (hospedagem) para essa nossa aplicação node-ts e como configurar o banco para nuvem
 --> Testes unitários (acho que Jest só serve pra JS, tem q conferir isso)
 
