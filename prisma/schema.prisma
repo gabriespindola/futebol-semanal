@@ -17,6 +17,7 @@ model Usuario {
 model Jogador {
   id           Int           @id @default(autoincrement())
   nome         String
+  imagem       String?
   estatisticas Estatistica[]
 }
 
