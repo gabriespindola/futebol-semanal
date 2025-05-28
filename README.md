@@ -97,28 +97,6 @@ Desenvolvida em Node.js, Express, TypeScript e Prisma ORM.
 
 ---
 
-## Deploy na Railway
-
-1. Faça push do projeto para o GitHub.
-2. Crie um novo projeto na [Railway](https://railway.app/).
-3. Conecte seu repositório GitHub.
-4. Adicione as variáveis de ambiente `DATABASE_URL` (PostgreSQL) e `JWT_SECRET`.
-5. Configure o comando de build:  
-   ```
-   npm run build
-   ```
-   E de start:
-   ```
-   npm start
-   ```
-6. Rode as migrations no terminal da Railway:
-   ```sh
-   npx prisma migrate deploy
-   ```
-7. Acesse a URL gerada pela Railway para testar sua API.
-
----
-
 ## Observações
 
 - Para produção, recomenda-se usar PostgreSQL.
