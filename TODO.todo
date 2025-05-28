@@ -5,6 +5,8 @@ CONCEITO C:
 
 CONCEITO B:
 
+--> Verificar se multer ta funcionando
+
 CONCEITO A:
 
 --> Descobrir um site de deploy (hospedagem) para essa nossa aplicação node-ts e como configurar o banco para nuvem
