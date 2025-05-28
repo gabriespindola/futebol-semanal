@@ -4,6 +4,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn src/server.ts",
+    "seed": "ts-node prisma/seed.ts",
     "start": "node dist/server.js",
     "clear": "rmdir /s /q dist",
     "build": "tsc"
