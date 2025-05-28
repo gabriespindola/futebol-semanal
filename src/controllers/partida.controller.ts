@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as partidaService from '../services/partida.service';
 
-export async function listar(req: Request, res: Response): Promise<void> {
+export async function listar(req: Request, res: Response) {
   try {
     const partidas = await partidaService.listar();
     res.status(200).json(partidas);
@@ -10,7 +10,7 @@ export async function listar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function buscarPorId(req: Request, res: Response): Promise<void> {
+export async function buscarPorId(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const partida = await partidaService.buscarPorId(id);
@@ -21,7 +21,7 @@ export async function buscarPorId(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function criar(req: Request, res: Response): Promise<void> {
+export async function criar(req: Request, res: Response) {
   try {
     const partida = await partidaService.criar(req.body);
     res.status(201).json(partida);
@@ -30,7 +30,7 @@ export async function criar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function atualizar(req: Request, res: Response): Promise<void> {
+export async function atualizar(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const atualizado = await partidaService.atualizar(id, req.body);
@@ -41,7 +41,7 @@ export async function atualizar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function deletar(req: Request, res: Response): Promise<void> {
+export async function deletar(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const deletado = await partidaService.deletar(id);
@@ -52,7 +52,7 @@ export async function deletar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function listarJogadoresDaPartida(req: Request, res: Response): Promise<void> {
+export async function listarJogadoresDaPartida(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const jogadores = await partidaService.listarJogadoresDaPartida(id);

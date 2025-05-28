@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as authServices from '../services/auth.services';
 
-export async function register(req: Request, res: Response): Promise<void> {
+export async function register(req: Request, res: Response) {
     try {
         const usuario = await authServices.register(req.body);
         res.status(201).json(usuario);
@@ -10,7 +10,7 @@ export async function register(req: Request, res: Response): Promise<void> {
     }
 }
 
-export async function login(req: Request, res: Response): Promise<void> {
+export async function login(req: Request, res: Response) {
     try {
         const resultado = await authServices.login(req.body);
         res.status(200).json(resultado);
