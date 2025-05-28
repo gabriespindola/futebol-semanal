@@ -23,7 +23,9 @@ export async function buscarPorId(req: Request, res: Response): Promise<void> {
 
 export async function criar(req: Request, res: Response): Promise<void> {
   try {
-    const jogador = await jogadorService.criar(req.body);
+    const { nome } = req.body;
+    const imagem = req.file ? req.file.path : null;
+    const jogador = await jogadorService.criar({ nome, imagem });
     res.status(201).json(jogador);
   } catch (error) {
     res.status(500).json({ mensagem: 'Erro ao criar jogador', erro: error });
