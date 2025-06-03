@@ -1,4 +1,6 @@
 node_modules
 .env
-
+TODO.todo
 /generated/prisma
+/src
+/prisma
