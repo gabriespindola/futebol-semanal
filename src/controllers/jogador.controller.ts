@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import * as jogadorService from '../services/jogador.service';
 
-export async function listar(req: Request, res: Response): Promise<void> {
+export async function listar(req: Request, res: Response) {
   try {
     const jogadores = await jogadorService.listar();
     res.status(200).json(jogadores);
@@ -10,7 +10,7 @@ export async function listar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function buscarPorId(req: Request, res: Response): Promise<void> {
+export async function buscarPorId(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const jogador = await jogadorService.buscarPorId(id);
@@ -21,7 +21,7 @@ export async function buscarPorId(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function criar(req: Request, res: Response): Promise<void> {
+export async function criar(req: Request, res: Response) {
   try {
     const { nome } = req.body;
     const imagem = req.file ? req.file.path : null;
@@ -32,7 +32,7 @@ export async function criar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function atualizar(req: Request, res: Response): Promise<void> {
+export async function atualizar(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const atualizado = await jogadorService.atualizar(id, req.body);
@@ -43,7 +43,7 @@ export async function atualizar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function deletar(req: Request, res: Response): Promise<void> {
+export async function deletar(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const deletado = await jogadorService.deletar(id);
@@ -54,7 +54,7 @@ export async function deletar(req: Request, res: Response): Promise<void> {
   }
 }
 
-export async function listarPartidasDoJogador(req: Request, res: Response): Promise<void> {
+export async function listarPartidasDoJogador(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const partidas = await jogadorService.listarPartidasDoJogador(id);
@@ -64,7 +64,7 @@ export async function listarPartidasDoJogador(req: Request, res: Response): Prom
   }
 }
 
-export async function listarEstatisticasDoJogador(req: Request, res: Response): Promise<void> {
+export async function listarEstatisticasDoJogador(req: Request, res: Response) {
   try {
     const id = Number(req.params.id);
     const estatisticas = await jogadorService.listarEstatisticasDoJogador(id);
