@@ -1,24 +1,42 @@
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import pool from '../database/connection';
 
 export async function listar() {
-  return prisma.jogador.findMany();
+  const result = await pool.query('SELECT * FROM jogadores');
+  return result.rows;
 }
 
 export async function buscarPorId(id: number) {
-  return prisma.jogador.findUnique({ where: { id } });
+  const result = await pool.query('SELECT * FROM jogadores WHERE id = $1', [id]);
+  return result.rows[0];
 }
 
 export async function criar(data: any) {
-  return prisma.jogador.create({ data });
+  const { nome, imagem } = data;
+  const result = await pool.query(
+    'INSERT INTO jogadores (nome, imagem) VALUES ($1, $2) RETURNING *',
+    [nome, imagem]
+  );
+  return result.rows[0];
 }
 
 export async function atualizar(id: number, data: any) {
-  return prisma.jogador.update({ where: { id }, data });
+  const campos = [];
+  const valores = [];
+  let idx = 1;
+  for (const key in data) {
+    campos.push(`${key} = $${idx}`);
+    valores.push(data[key]);
+    idx++;
+  }
+  valores.push(id);
+  const query = `UPDATE jogadores SET ${campos.join(', ')} WHERE id = $${idx} RETURNING *`;
+  const result = await pool.query(query, valores);
+  return result.rows[0];
 }
 
 export async function deletar(id: number) {
-  return prisma.jogador.delete({ where: { id } });
+  await pool.query('DELETE FROM jogadores WHERE id = $1', [id]);
+  return true;
 }
 
 export async function listarPartidasDoJogador(jogadorId: number) {

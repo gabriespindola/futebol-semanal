@@ -1,24 +1,42 @@
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import pool from '../database/connection';
 
 export async function listar() {
-  return prisma.partida.findMany();
+  const result = await pool.query('SELECT * FROM partidas');
+  return result.rows;
 }
 
 export async function buscarPorId(id: number) {
-  return prisma.partida.findUnique({ where: { id } });
+  const result = await pool.query('SELECT * FROM partidas WHERE id = $1', [id]);
+  return result.rows[0];
 }
 
 export async function criar(data: any) {
-  return prisma.partida.create({ data });
+  const { dataPartida, local, timeAId, timeBId } = data;
+  const result = await pool.query(
+    'INSERT INTO partidas (dataPartida, local, timeAId, timeBId) VALUES ($1, $2, $3, $4) RETURNING *',
+    [dataPartida, local, timeAId, timeBId]
+  );
+  return result.rows[0];
 }
 
 export async function atualizar(id: number, data: any) {
-  return prisma.partida.update({ where: { id }, data });
+  const campos = [];
+  const valores = [];
+  let idx = 1;
+  for (const key in data) {
+    campos.push(`${key} = $${idx}`);
+    valores.push(data[key]);
+    idx++;
+  }
+  valores.push(id);
+  const query = `UPDATE partidas SET ${campos.join(', ')} WHERE id = $${idx} RETURNING *`;
+  const result = await pool.query(query, valores);
+  return result.rows[0];
 }
 
 export async function deletar(id: number) {
-  return prisma.partida.delete({ where: { id } });
+  await pool.query('DELETE FROM partidas WHERE id = $1', [id]);
+  return true;
 }
 
 export async function listarJogadoresDaPartida(partidaId: number) {

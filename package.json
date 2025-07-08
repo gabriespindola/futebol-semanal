@@ -26,14 +26,16 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.0",
     "node": "^22.16.0",
+    "pg": "^8.16.3",
     "prisma": "^6.8.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",
-    "@types/express": "^5.0.2",
+    "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.15.23",
+    "@types/pg": "^8.15.4",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
