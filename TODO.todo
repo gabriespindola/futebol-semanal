@@ -1,8 +1,8 @@
-1. Fazer o seed e o cleanDb, pós isso apagar a pasta database.
+
 
 ------------------- <<>> -----------------
 
-2. Ativar esses scripts no package.json
+
 
 ------------------- <<>> -----------------
 
@@ -35,6 +35,7 @@
 ------------------- <<>> -----------------
 
 10. Update readMe.md
+
 
 
 

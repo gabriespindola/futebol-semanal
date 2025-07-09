@@ -1,4 +1,5 @@
 import pool from '../../db';
+import bcrypt from 'bcrypt';
 
 export async function listarUsuarios() {
   const result = await pool.query('SELECT * FROM usuarios');
@@ -42,4 +43,19 @@ export async function deletarUsuario(id: number) {
 export async function buscarUsuarioPorEmail(email: string) {
   const result = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
   return result.rows[0];
+}
+
+export async function findUserByEmailAndPassword(email: string, password: string) {
+  // Primeiro busca o usuário pelo email
+  const result = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
+  const user = result.rows[0];
+  
+  // Se não encontrou usuário, retorna undefined
+  if (!user) return undefined;
+  
+  // Compara a senha fornecida com o hash armazenado
+  const isPasswordValid = await bcrypt.compare(password, user.senha);
+  
+  // Retorna o usuário se a senha estiver correta, senão undefined
+  return isPasswordValid ? user : undefined;
 }

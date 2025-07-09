@@ -4,12 +4,14 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn src/server.ts",
-    "seed": "",
-    "cleanDb": "",
-    "start": "node dist/server.js",
+    "seed": "seed",
+    "cleanDb": "cleanDb",
+    "start": "start",
     "clear": "rmdir /s /q dist",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [
     "futebol",
@@ -28,8 +30,7 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.0",
     "node": "^22.16.0",
-    "pg": "^8.16.3",
-    "prisma": "^6.8.2"
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",
