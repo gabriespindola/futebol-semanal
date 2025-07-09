@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import pool from './connection';
+import pool from '../../db';
 
 async function setupDatabase() {
   const schemaPath = path.resolve(__dirname, 'schema.sql');

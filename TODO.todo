@@ -1,0 +1,41 @@
+1. Fazer o seed e o cleanDb, pós isso apagar a pasta database.
+
+------------------- <<>> -----------------
+
+2. Ativar esses scripts no package.json
+
+------------------- <<>> -----------------
+
+3. Verificar erros de import 
+
+------------------- <<>> -----------------
+
+4. Montar todas as rotas, com os controllers, services e repository com base nas propriedades que chegam da requisição.
+
+------------------- <<>> -----------------
+
+5. Connectar a AzureBlobStorage para envio das imagens.
+
+------------------- <<>> -----------------
+
+6. Garantir funcionalidade de autenticação JWT
+
+------------------- <<>> -----------------
+
+7. Realizar testes jest e supertest
+
+------------------- <<>> -----------------
+
+8. Tentar deploy railway com build
+
+------------------- <<>> -----------------
+
+9. Realizar testes jest e supertest
+
+------------------- <<>> -----------------
+
+10. Update readMe.md
+
+
+
+-- Criar o .env com os dados enviados no disc.

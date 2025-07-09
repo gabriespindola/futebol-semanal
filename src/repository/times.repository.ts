@@ -1,4 +1,4 @@
-import pool from '../database/connection';
+import pool from '../../db';
 
 export async function listarTimes() {
   const result = await pool.query('SELECT * FROM times');
