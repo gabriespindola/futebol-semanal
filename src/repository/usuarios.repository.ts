@@ -1,4 +1,4 @@
-import pool from '../../db';
+import pool from '../db';
 import bcrypt from 'bcrypt';
 
 export async function listarUsuarios() {

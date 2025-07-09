@@ -1,4 +1,4 @@
-import pool from '../../db';
+import pool from '../db';
 
 export async function listarJogadores() {
   const result = await pool.query('SELECT * FROM jogadores');

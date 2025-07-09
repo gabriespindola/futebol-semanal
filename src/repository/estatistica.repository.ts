@@ -1,4 +1,4 @@
-import pool from '../../db';
+import pool from '../db';
 
 export async function listarEstatisticas() {
   const result = await pool.query('SELECT * FROM estatisticas');
