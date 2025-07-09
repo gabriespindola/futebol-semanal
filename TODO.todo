@@ -1,40 +1,26 @@
 
 
-------------------- <<>> -----------------
-
-
+1. Verificar erros de import 
 
 ------------------- <<>> -----------------
 
-3. Verificar erros de import 
+2. Montar todas as rotas, com os controllers, services e repository com base nas propriedades que chegam da requisição.
 
 ------------------- <<>> -----------------
 
-4. Montar todas as rotas, com os controllers, services e repository com base nas propriedades que chegam da requisição.
+3. Connectar a AzureBlobStorage para envio das imagens.
 
 ------------------- <<>> -----------------
 
-5. Connectar a AzureBlobStorage para envio das imagens.
+4. Garantir funcionalidade de autenticação JWT
 
 ------------------- <<>> -----------------
 
-6. Garantir funcionalidade de autenticação JWT
+5. Tentar deploy railway com build
 
 ------------------- <<>> -----------------
 
-7. Realizar testes jest e supertest
-
-------------------- <<>> -----------------
-
-8. Tentar deploy railway com build
-
-------------------- <<>> -----------------
-
-9. Realizar testes jest e supertest
-
-------------------- <<>> -----------------
-
-10. Update readMe.md
+6. Update readMe.md
 
 
 
